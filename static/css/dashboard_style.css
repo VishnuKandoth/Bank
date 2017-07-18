@@ -1,0 +1,651 @@
+.login_box{
+    width: 25%;
+    height: 62%;
+    position: absolute;
+    left: 65%;
+    top: 10%;
+    padding: 0% 1%;
+    background-color: white;
+    box-shadow: 1px 0px 26px #BBBBBB;
+    padding-top: 8%;
+    margin-top:2%;
+}
+
+.login_btn {
+    width: 30%;
+    margin: 10%;
+    padding: 3%;
+    border: 0px;
+    border-radius: 2px;
+    background-color: #03D8B4;
+    color:white;
+    margin-left: 37%;
+    margin-bottom:3%;
+    margin-top:13%;
+}
+
+.login_field{
+    border: 1px solid #FAFAFA;
+    width: 58%;
+    border-bottom: 2px solid #03D8B4;
+    padding: 5%;
+    border-top: 0px solid #FAFAFA;
+    background-color: white;
+    margin-left: 18%;
+    margin-top: -2%;
+}
+
+.login_txt {
+    color: #03D8B4;
+    margin-left: 35%;
+    margin-top: -12%;
+    font-size: 31px;
+    margin-bottom: 25%;
+}
+
+.login_head{
+    margin: 16% 8%;
+    color: #FF7575;
+    font-size:50px;
+}
+
+.login_caption{
+    color: #0BBDBD;
+    margin: -8% 9%;
+    font-size: 28px;
+}
+
+.login_p{
+    margin-top: -7%;
+    margin-left: 48%;
+}
+
+.login_p1{
+    margin-top: 0%;
+    margin-left: 38%
+}
+
+.hr {
+    position: relative;
+    top: -10%;
+    width: 90%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-bottom:10%;
+}
+
+body {
+        margin: 0;
+        background-color: snow;
+    }
+
+    .addbank_form {
+        background-color: white;
+        width: 50%;
+        height:auto;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        color: #0BBDBD;
+        margin-top: 3%;
+        box-shadow: 1px 5px 20px #989898;
+    }
+
+    .bank_formbtn{
+        width: 25%;
+        margin-top: 5%;
+        padding: 1.5%;
+        border: 0px;
+        border-radius: 2px;
+        background-color: #0BBDBD;
+        color:white;
+        margin-left: 32%;
+        margin-bottom: 4%;
+    }
+
+    .textarea{
+        border: 1px solid #0BBDBD;
+        width: 40%;
+        height: 51px;
+        border-radius: 5px;
+        border-bottom: 1px solid #0BBDBD;
+        background-color: white;
+        padding-left:19%;
+     }
+
+    .textfield{
+        border: 1px solid #0BBDBD;
+        width: 40%;
+        height: 30px;
+        border-radius: 5px;
+        border-bottom: 1px solid #0BBDBD;
+        background-color: white;
+        margin-top:0%;
+        padding-left:19%;
+        margin-bottom:4%;
+    }
+
+    ul  {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 25%;
+        background-color: white;
+        position: absolute;
+        height: 116%;
+        overflow: auto;
+        top: 6.1%;
+        font-family: Ubuntu Light;
+        box-shadow: 1px 5px 20px #989898;
+    }
+
+    li a {
+        display: block;
+        color: #000;
+        padding: 13px 28px;
+        text-decoration: none;
+    }
+
+    li a.active {
+        background-color: #0BBDBD;
+        color: white;
+    }
+
+    .admin{
+        color:white;
+        list-style-type: none;
+        overflow: hidden;
+        background-color: #0BBDBD;
+        font-family: Ubuntu Light;
+        height: 40px;
+        box-shadow: 1px 5px 20px #989898;
+    }
+
+    .admin_name {
+        position: absolute;
+        left: 90%;
+        margin-top: 0%;
+        font-size: 17px;
+        font-family: cursive;
+    }
+
+    .body_content{
+        margin-left:25%;
+        margin-top:2%;
+        padding:1px 16px;
+        height:1000px;
+    }
+
+
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: white;
+    color:#0BBDBD;
+    width:50%;
+}
+
+
+.dropdown-content  {
+    display: none;
+    position: relative;
+    background-color:white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+.dropdown-content a {
+    color: #0BBDBD;
+    padding: 7px 25%;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+      background-color:white;
+      width:80%;
+      color: #f15912 ;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hr {
+    position: relative;
+    top: -10%;
+    width: 90%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-bottom:10%;
+}
+
+
+.transaction_text{
+    border: 1px solid #0BBDBD ;
+    width: 44%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 3%;
+    border-bottom: 1px solid #0BBDBD;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.account_drop {
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 12%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.customer_drop {
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 10%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.custom_drop {
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 5%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.customform_drop{
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 17%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+}
+
+.bank_drop {
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 17%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.transform_bankdrop{
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 17%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.type_drop {
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 1%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.datetime{
+    border:  1px solid #0BBDBD ;
+    width: 44%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 18%;
+    border-bottom: 1px solid #0BBDBD;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.amount{
+    border: 0px;
+    width: 44%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 13%;
+    border-bottom: 1px solid #0BBDBD;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.add_form {
+    color: #0BBDBD;
+    width: 50%;
+    background-color: white;
+    padding-top: 2%;
+    margin-top: 3%;
+    box-shadow: 1px 5px 20px #989898;
+    height: auto;
+}
+
+.add_formbtn{
+    width: 29%;
+    margin: 1%;
+    padding: 1.5%;
+    border: 0px;
+    border-radius: 2px;
+    background-color: #0BBDBD;
+    color:white;
+    margin-left: 47%;
+    margin-top: 6%;
+    margin-bottom: 2%;
+}
+
+
+.textfield_custname {
+    border:  1px solid #0BBDBD ;
+    width: 44%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 3%;
+    border-bottom: 1px solid #0BBDBD;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.textfield_pancard {
+    border:  1px solid #0BBDBD ;
+    width: 44%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 3%;
+    border-bottom: 1px solid #0BBDBD;
+    background-color: white;
+    margin-top: 4%;
+}
+
+
+.textfield_custcontact {
+    border: 1px solid #0BBDBD ;
+    width: 44%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 0%;
+    border-bottom: 1px solid #0BBDBD;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.customer_textarea{
+    border: 1px solid #0BBDBD;
+    width: 43%;
+    height: 100px;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.common_drop {
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 21%;
+    background-color: white;
+    margin-top: 4%;
+}
+
+.exitbtn {
+    text-decoration: none;
+    color: #FFB284;
+    font-weight: bold;
+}
+
+.viewall {
+    color: #0BBDBD;
+    text-decoration: none;
+    font-family: Ubuntu Light;
+    font-weight: bold;
+}
+
+.search_formbtn{
+    width: 19%;
+    margin-top: 5%;
+    padding: 1%;
+    border: 0px;
+    border-radius: 2px;
+    background-color: #0BBDBD;
+    color: white;
+    margin-left: 1%;
+    margin-bottom: 4%;
+}
+
+.search_drop{
+    border: 1px solid #0BBDBD;
+    width: 44%;
+    height: 30px;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.highlight{
+    color: #4DA60F;
+    border: 0px solid;
+    font-family: Ubuntu Light;
+    margin-left: 10%;
+    margin-top: 2%;
+    font-size: x-large;
+    width: 50%;
+    font-weight: 600;
+}
+
+    table {
+        border-collapse: collapse;
+        width: 90%;
+        font-family:Ubuntu Light;
+        font-size:15px;log
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+        text-decoration:none;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    th {
+        background-color: #0DDEDE;
+        color: white;
+    }
+
+.viewall{color}
+
+.customer_highlight {
+    color: #4DA60F;
+    border: 0px solid;
+    font-family: Ubuntu Light;
+    margin-left: 10%;
+    margin-top: 2%;
+    font-size: x-large;
+    width: 25%;
+    font-weight: 600;
+}
+
+.text_area{
+    border: 1px solid #0BBDBD;
+    width: 40%;
+    height: 50px;
+    border-radius: 5px;
+    border-bottom: 1px solid #0BBDBD;
+    background-color: white;
+    margin-top: 3%;
+    padding-left: 19%;
+}
+
+.account_highlight{
+    color: #4DA60F;
+    border: 0px solid;
+    font-family: Ubuntu Light;
+    margin-left: 11%;
+    margin-top: 2%;
+    font-size: x-large;
+    width: 47%;
+    font-weight: 600;
+}
+
+
+input[type="text"]:focus{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+}
+
+input[type="text"]:hover{
+border: 1px solid #04FEFA;
+border-radius: 5px;
+}
+
+input[type="text"]:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+border-radius:0;
+
+}
+
+
+
+input[type="time"]:focus{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+}
+
+input[type="time"]:hover{
+border: 1px solid #04FEFA;
+border-radius: 5px;
+}
+
+input[type="time"]:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+border-radius:0;
+
+}
+
+
+
+
+input[type="date"]:focus{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+}
+
+input[type="date"]:hover{
+border: 1px solid #04FEFA;
+border-radius: 5px;
+}
+
+input[type="date"]:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+border-radius:0;
+
+}
+
+
+
+input[type="password"]:focus{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+}
+
+input[type="password"]:hover{
+border: 1px solid #04FEFA;
+border-radius: 5px;
+}
+
+input[type="password"]:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+border-radius:0;
+
+}
+
+
+select:focus{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+}
+
+select:hover{
+border: 1px solid #04FEFA;
+border-radius: 5px;
+}
+
+select:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+border-radius:0;
+
+}
+
+
+textarea:focus{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+}
+
+textarea:hover{
+border: 1px solid #04FEFA;
+border-radius: 5px;
+}
+
+textarea:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #61C5FA;
+border:1px solid #5AB0DB;
+border-radius:0;
+}
+
+.lable_position{
+    float: left;
+    margin-left: 8%;
+}
+
+.field_position{
+    float: right;
+    margin-right: 5%;
+}
+
+.acc_type{
+        border: 1px solid #0BBDBD;
+        width: 59%;
+        height: 30px;
+        border-radius: 5px;
+        border-bottom: 1px solid #0BBDBD;
+        background-color: white;
+        margin-top:0%;
+        padding-left:19%;
+        margin-bottom:4%;
+    }

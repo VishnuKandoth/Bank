@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/dashboard_style.css">
+</head>
+<body>
+    <ul>
+        <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Bank</a>
+        <div class="dropdown-content">
+            {% if var %}
+                <a href="{% url 'bank_form' %}">Add Bank</a>
+            {% endif %}
+            <a href="{% url 'bank_list' %}">View Bank</a>
+            <a href="{% url 'edit_bank' %}">Edit Bank</a>
+        </div>
+        </li>
+
+        <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Account</a>
+        <div class="dropdown-content">
+            <a href="{% url 'add_account' %}">Add Account</a>
+            <a href="{% url 'search_account' %}">View Account</a>
+            <a href="{% url 'edit_account' %}">Edit Account</a>
+        </div>
+        </li>
+
+        <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Transaction</a>
+        <div class="dropdown-content">
+            <a href="{% url 'add_transaction' %}">Add Transaction</a>
+            <a href="{% url 'search_transaction' %}">View Transaction</a>
+        </div>
+        </li>
+    </ul>
+
+    <div class="admin">
+        <p class="admin_name">Hai,  {{username}}<br><a class="exitbtn" style="color:#FFB284;" href="{% url 'logout' %}">Logout</a></p>
+
+    </div>
+
+    <div class="body_content">
+    <center>
+
+        <!--Bank Functions-->
+        {% if form %}                           <!--Form for Adding Bank Details-->
+            <div class="addbank_form">
+                <h1 class="form_head">Add Bank</h1>
+                <hr class="hr">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field.errors }}
+                        {{ field }}<br><br>
+                    {% endfor %}
+                    <input type="submit" class="bank_formbtn" value="Add Data">
+                </form>
+            </div>
+        {% endif %}
+
+
+        {% if bank_table %}                     <!--Viewing Bank Details-->
+            <table>
+                <tr>
+                <th>IFSC_Code</th>
+                <th>Branch_Name</th>
+                <th>Address</th>
+                <th>Contact_no</th>
+                </tr>
+                <tr>
+                {% for data in bank_table %}
+                  <td><a href="{% url 'edit_bank1' %}?bank={{data.ifsc_code}}">{{data.ifsc_code}}</a></td>
+                  <td>{{data.branch_name}}</td>
+                  <td>{{data.address}}</td>
+                  <td>{{data.contact_no}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+
+        {% if editbank %}                   <!--Condition for Editing Bank based on IFSC code-->
+            <div class="addbank_form">
+                <h1 class="form_head">Edit Bank</h1>
+                <hr class="hr">
+                <h3>Branch IFSC Code:</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <select class="search_drop" name="bank">
+                    <option>--None--</option>
+                        {% for item in editbank%}
+                    <option value="{{item.ifsc_code}}">{{item.ifsc_code}}</option>
+                    {% endfor %}
+                    </select><br><br>
+                    <input type="submit" class="search_formbtn" value="Edit Data">
+                    <br>
+                </form>
+            </div>
+        {% endif %}
+
+
+        {% if bank_result %}                <!--Form for Editing Bank Details-->
+            <div class="addbank_form">
+                <h1 class="form_head">Edit/Update Bank</h1>
+                <hr class="hr">
+                <form method="POST" action="{% url 'update_bank' %}">
+                    {% csrf_token %}
+                    {% for data in bank_result %}
+                    IFSC_CODE:<br>
+                    <input type="text" class="highlight" name="ifsc_code" value={{data.ifsc_code}} readonly><br><br><br><br>
+                    Branch:&nbsp;&nbsp;
+                    <input type="text" class="textfield" name="branch_name" value={{data.branch_name}}><br><br>
+                    Address:&nbsp;&nbsp;
+                    <textarea class="text_area" name="address">{{data.address}}</textarea><br><br>
+                    Contact:&nbsp;&nbsp;
+                    <input type="text" class="textfield" name="contact_no" value={{data.contact_no}}><br><br>
+                    <input type="submit" class="search_formbtn" value="Update Data"><br><br>
+                    <br><br>
+                    {% endfor %}
+                </form>
+            </div>
+        {% endif %}
+
+
+
+        <!--Account Functions-->
+        {% if ifsc %}                     <!--Condition for adding Account based on branch name-->
+            <div class="addbank_form">
+                <h1 class="form_head">Add Account</h1>
+                <hr class="hr">
+                <h3>Branch IFSC Code:</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <select class="search_drop" name="bank">
+                    <option>--None--</option>
+                    {% for item in ifsc %}
+                    <option value="{{item.ifsc_code}}">{{item.ifsc_code}}</option>
+                    {% endfor %}
+                    </select><br><br>
+                    <input type="submit" class="search_formbtn" value="Add Data">
+                    <br>
+                </form>
+            </div>
+        {% endif %}
+
+
+        {% if bank %}                           <!--Form for adding account details-->
+            <div class="addbank_form">
+                <h1 class="form_head">Add Account</h1>
+                <hr class="hr">
+                <form method="POST" action="{% url 'update_account' %}">
+                    {% csrf_token %}
+                    <p class="lable_position">Account.no:</p>
+                        <input type="text" class="textfield field_position" name="account_no"><br><br>
+                    <p class="lable_position">Account Holder:</p>
+                        <input type="text" class="textfield field_position" name="account_holder"><br><br>
+                    <p class="lable_position">Bank:</p>
+                        <input type="text" class="textfield field_position" name="bank" value={{bank}} readonly><br><br>
+                    <p class="lable_position">Address:</p>
+                        <input type="text" class="textfield field_position" name="address"><br><br>
+                    <p class="lable_position">Contact:</p>
+                        <input type="text" class="textfield field_position" name="contact"><br><br>
+                    <p class="lable_position">Account Type:</p>
+                        <select class="acc_type field_position" name="account_type" >
+                            <option>--------</option>
+                            <option>Current </option>
+                            <option>Fixed </option>
+                            <option>Loan </option>
+                            <option>Student </option>
+                            <option>Savings </option>
+                        </select><br><br>
+                    <p class="lable_position">Pan Card:</p>
+                        <input type="text" class="textfield field_position" name="pancard_no" value="PAN"><br><br>
+                    <input type="submit" class="search_formbtn" value="Update Data"><br><br>
+                    <br><br>
+                </form>
+            </div>
+        {% endif %}
+
+
+        {% if account_table %}                    <!--Viewing Account Details-->
+            <table>
+                <tr>
+                <th>Account No</th>
+                <th>Account Holder</th>
+                <th>Bank</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Account Type</th>
+                <th>Pancard Number</th>
+                </tr>
+                {% for data in account_table %}
+                <tr>
+                    <td><a href="{% url 'edit_account1' %}?account={{data.account_no}}">{{data.account_no}}</a></td>
+                  <td>{{data.account_holder}}</td>
+                  <td>{{data.bank}}</td>
+                  <td>{{data.address}}</td>
+                  <td>{{data.contact}}</td>
+                  <td>{{data.account_type}}</td>
+                  <td>{{data.pancard_no}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+
+        {% if view %}            <!--Condition for Searching Account based on Account Number-->
+            <div class="addbank_form">
+                <h1 class="form_head">Search Account</h1>
+                <hr class="hr">
+                <h3>Account Number:</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <select class="search_drop" name="account">
+                    <option>--None--</option>
+                    {% for item in view %}
+                        <option value="{{item.account_no}}">{{item.account_no}}</option>
+                    {% endfor %}
+                    </select><br><br>
+                    <input type="submit" class="search_formbtn" value="View Data">
+                    <br>
+                </form>
+                <a href="{% url 'account_list' %}" class="viewall">View All Account</a>
+            </div>
+        {% endif %}
+
+
+        {% if edit %}                  <!--Condition for Editing Account based on Account Number-->
+            <div class="addbank_form">
+                <h1 class="form_head">Edit Account</h1>
+                <hr class="hr">
+                <h3>Account Number:</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <select class="search_drop" name="account">
+                    <option>--None--</option>
+                    {% for item in edit %}
+                        <option value="{{item.account_no}}">{{item.account_no}}</option>
+                    {% endfor %}
+                    </select><br><br>
+                    <input type="submit" class="search_formbtn" value="Edit Data">
+                    <br>
+                </form>
+            </div>
+        {% endif %}
+
+
+        {% if account_result %}             <!--Form for Editing Account Details-->
+            <div class="addbank_form">
+                <h1 class="form_head">Edit Account</h1>
+                <hr class="hr">
+                <form method="POST" action="{% url 'update_account' %}">
+                    {% csrf_token %}
+                    {% for data in account_result %}
+                    ACCOUNT_NO:<br>
+                    <input type="text" class="account_highlight" name="account_no" value={{data.account_no}} readonly><br><br><br><br>
+                    <p class="lable_position">Account Holder:</p>
+                    <input type="text" class="textfield field_position" name="account_holder" value={{data.account_holder}}><br><br><br><br>
+                    <p class="lable_position">Bank:</p>
+                    <input type="text" class="textfield field_position" name="bank" value="{{data.bank}}" readonly><br><br><br>
+                    <p class="lable_position">Address:</p>
+                    <textarea class="text_area field_position" name="address">{{data.address}}</textarea><br><br><br><br><br>
+                    <p class="lable_position">Contact:</p>
+                    <input type="text" class="textfield field_position" name="contact" value={{data.contact}}><br><br><br>
+                    <p class="lable_position">Account_type:</p>
+                    <input type="text" class="textfield field_position" name="account_type" value={{data.account_type}}><br><br><br>
+                    <p class="lable_position">Pancard_no:</p>
+                    <input type="text" class="textfield field_position" name="pancard_no" value={{data.pancard_no}}><br><br>
+                    <input type="submit" class="search_formbtn" value="Update Data"><br><br>
+                    <br><br>
+                    {% endfor %}
+                </form>
+            </div>
+        {% endif %}
+
+
+
+        <!--Transaction Functions-->
+        {% if addtrans %}              <!--Condition for Adding Transaction Details based on account number-->
+            <div class="addbank_form">
+                <h1 class="form_head">Add Transaction</h1>
+                <hr class="hr">
+                <h3>Account Number:</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <select class="search_drop" name="account_no">
+                    <option>--None--</option>
+                    {% for item in addtrans %}
+                        <option value="{{item.account_no}}">{{item.account_no}}</option>
+                    {% endfor %}
+                    </select><br><br>
+                    <input type="submit" class="search_formbtn" value="Add Data">
+                    <br>
+                </form>
+            </div>
+        {% endif %}
+
+
+        {% if result_addtransaction %}          <!--Form for Adding Transaction Details-->
+            <div class="addbank_form">
+                <h1 class="form_head">Add Transaction</h1>
+                <hr class="hr">
+                <form method="POST" action="{% url 'update_transaction' %}">
+                    {% csrf_token %}
+                    {% for data in result_addtransaction %}
+                    Transaction_id:&nbsp;&nbsp;
+                    <input type="text" class="textfield" name="transaction_id"><br><br>
+                    Bank:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="textfield" name="bank" value={{data.bank}} readonly><br><br>
+                    Account:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="textfield" name="account" value={{data.account_no}} readonly ><br><br>
+                    Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="date" class="textfield" name="date"><br><br>
+                    Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="time" class="textfield" name="time"><br><br>
+                    Amount:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="textfield" name="amount"><br><br>
+                    Transaction_Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
+                    <select class="textfield" name="transaction_type">
+                        <option>Credit</option>
+                        <option>Debit</option>
+                    </select><br><br>
+                    <input type="submit" class="search_formbtn" value="Update Data"><br><br>
+                    <br><br>
+                    {% endfor %}
+                </form>
+            </div>
+        {% endif %}
+
+
+        {% if transaction_table %}                 <!--Viewing Transaction Details-->
+            <table>
+                <tr>
+                <th>Transaction ID</th>
+                <th>Branch</th>
+                <th>Account No</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Amount</th>
+                <th>Transaction Type</th>
+                </tr>
+                {% for data in transaction_table %}
+                <tr>
+                  <td>{{data.transaction_id}}</td>
+                  <td>{{data.bank}}</td>
+                  <td>{{data.account}}</td>
+                  <td>{{data.date}}</td>
+                  <td>{{data.time}}</td>
+                  <td>{{data.amount}}</td>
+                  <td>{{data.transaction_type}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+        {% if trans %}             <!--Search transaction details based on account number-->
+            <div class="addbank_form">
+                <h1 class="form_head">Search Transaction</h1>
+                <hr class="hr">
+                <h3>Account Number:</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <select class="search_drop" name="account_no">
+                    <option>--None--</option>
+                    {% for item in trans %}
+                        <option value="{{item.account_no}}">{{item.account_no}}</option>
+                    {% endfor %}
+                    </select><br><br>
+                    <input type="submit" class="search_formbtn" value="View Data">
+                    <br>
+                </form>
+                <a href="{% url 'transaction_list' %}" class="viewall">View All Transaction</a>
+            </div>
+        {% endif %}
+
+    </center>
+    </div>
+</body>
+</html>
